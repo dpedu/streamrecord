@@ -1,16 +1,5 @@
 #!/usr/bin/env python3
 
-# Clear out old session lockfiles BEFORE importing cherry
-#import os
-#for f in os.listdir("sessions/"):
-#	if "lock" in f:
-#		os.remove("sessions/%s" % f)
-
-# CREATE TABLE 'streams' ('id' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'user' INTEGER, 'name' TEXT, 'url' TEXT, 'directory' TEXT, 'status' INTEGER, 'message' TEXT);
-# CREATE TABLE 'times' ('id' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'streamid' INTEGER, 'su' BOOLEAN, 'm' BOOLEAN, 't' BOOLEAN, 'w' BOOLEAN, 'r' BOOLEAN, 'f' BOOLEAN, 'sa' BOOLEAN, 'starthour' INTEGER, 'startmin' INTEGER, 'endhour' INTEGER, 'endmin' INTEGER)
-# INSERT INTO "streams" ("id","user","name","url","directory","status","message") VALUES (NULL,NULL,'WCMF Breakroom','http://1681.live.streamtheworld.com/WCMFFMAAC','wcmf-breakroom','0','')
-# INSERT INTO "times" ("id","streamid","su","m","t","w","r","f","sa","starthour","startmin","endhour","endmin") VALUES (NULL,'1','0','1','1','1','1','1','0','2','0','7','15')
-
 STREAM_STATUS_ACTIVE = 0
 STREAM_STATUS_PAUSED = 1
 STREAM_STATUS_ERROR = 2
@@ -256,26 +245,6 @@ if __name__ == '__main__' or 'uwsgi' in __name__:
 		@cherrypy.expose
 		@cherrypy.tools.response_headers(headers=[('Content-Type', 'application/rss+xml')])
 		def getPodcast(self, id):
-			"""fg = FeedGenerator()
-			fg.load_extension('podcast')
-			stream = self._getStream(id)
-			fg.title("Radio Feed - %s" % stream["name"])
-			fg.subtitle("Stream ID: %s"%stream["id"])
-			fg.language('en')
-			fg.link( href="http://192.168.1.200:3000/api/getPodcast?id=%s"%stream["id"], rel='self' )
-			
-			for item in stream["files"]:
-				fe = fg.add_entry()
-				fe.id("http://192.168.1.200:3000/api/download?id=%s&fn=%s" % (stream["id"], item["filenum"]))
-				fe.link(href="http://192.168.1.200:3000/api/download?id=%s&fn=%s" % (stream["id"], item["filenum"]), rel="alternate")
-				fe.title(item["filename"])
-			cherrypy.response.headers['Content-Type']= 'application/rss+xml'
-			xml = fg.rss_str(pretty=True)
-			
-			#return xml
-			#return str.encode(open("extra.txt", "r").read())
-			"""
-			
 			stream = self._getStream(id)
 			# Thu, 31 Jul 2014 07:13:48 +0000
 			for f in stream["files"]:
