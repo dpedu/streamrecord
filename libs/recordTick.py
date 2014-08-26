@@ -53,6 +53,7 @@ class recordTick(Thread):
 			# terminate each downloader
 			self.endStream(endTime["streamid"])
 		
+		print("tick (end): my threads: %s" % self.threads)
 		#print("Tick end: %s" % now)
 	
 	def startStream(self, id):
