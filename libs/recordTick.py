@@ -43,7 +43,7 @@ class recordTick:
 		days = ["m", "t", "w", "r", "f", "sa", "su"]
 		day = days[datetime.datetime.now().weekday()]
 		
-		startTimes = self.db.execute('SELECT * FROM "times" where "starthour"=? AND "startmin"=? AND "'+day+'"=1', (now.hour, now.minute))
+		startTimes = self.db.execute('SELECT * FROM "times" JOIN "streams" ON "streams"."id" = "times"."streamid" where "starthour"=? AND "startmin"=? AND "'+day+'"=1 AND "status"=0', (now.hour, now.minute))
 		for startTime in startTimes:
 			# Start each downloader
 			self.startStream(startTime["streamid"])
