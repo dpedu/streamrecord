@@ -21,8 +21,6 @@ class recordTick(Thread):
 		self.timer = scheduler(time.time, time.sleep)
 		
 		self.start()
-		
-		return self
 	
 	def run(self):
 		time.sleep(3)
