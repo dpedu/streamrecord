@@ -32,6 +32,7 @@ class recordTick(Thread):
 		## END TESTING CODE
 		
 		self.scheduleTick()
+		print("Run exit")
 	
 	def tick(self):
 		print("tick (start): my threads: %s" % self.threads)
