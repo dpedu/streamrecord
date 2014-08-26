@@ -126,7 +126,7 @@ if __name__ == '__main__' or 'uwsgi' in __name__:
 			return json.dumps(self._getStream(id))
 		
 		@cherrypy.expose
-		def changeStatus(self, streamid, newStatus):
+		def changeStatus(self, streamid, status):
 			streamid = int(streamid)
 			db.execute('UPDATE "streams" SET "status"=? WHERE "ud"=? ;', [newStatus, streamid])
 			return json.dumps({"result":True})
