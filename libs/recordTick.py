@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from threading import Thread
 import time
 import datetime
 from sched import scheduler
@@ -10,17 +9,12 @@ import subprocess
 import os
 import os.path
 
-class recordTick(Thread):
+class recordTick:
 	def __init__(self, database):
-		Thread.__init__(self)
 		# sqlite3 reference
 		self.db = database
 		# list of downloader threads
 		self.threads = {}
-		# tick timer
-		self.timer = scheduler(time.time, time.sleep)
-		
-		self.start()
 	
 	def run(self):
 		time.sleep(3)

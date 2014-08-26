@@ -95,6 +95,11 @@ if __name__ == '__main__' or 'uwsgi' in __name__:
 			self.REC = recordTick(db)
 		
 		@cherrypy.expose
+		def tick(self):
+			self.REC.tick()
+			return "OK"
+		
+		@cherrypy.expose
 		def getStreams(self):
 			streamList = db.execute('SELECT * FROM "streams"')
 			
