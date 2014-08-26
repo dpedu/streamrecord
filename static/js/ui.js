@@ -83,7 +83,20 @@ var ui = {
 					console.log("Couldn't save! changeName");
 				}})
 			})
-			
+		})
+		$(this).find(".btn-group-status button").click(function(){
+			streamid = $(this).closest(".panel").data("streamid");
+			var newStatus = null
+			if( $(this).hasClass("btn-status-ok") ) {
+				newStatus = 1
+			} else if( $(this).hasClass("btn-status-stop") ) {
+				newStatus = 0
+			} else {
+				newStatus = 0
+			}
+			$.ajax("/api/changeStatus", {dataType:"json", data:{id:streamid, status:newStatus},error:function(){
+				console.log("Couldn't save! changeStatus");
+			}})
 		})
 	}
 }
