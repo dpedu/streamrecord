@@ -34,6 +34,7 @@ class recordTick(Thread):
 		self.scheduleTick()
 	
 	def tick(self):
+		print("tick (start): my threads: %s" % self.threads)
 		now=datetime.datetime.now()
 		#print("Tick start: %s" % now)
 		
@@ -62,7 +63,7 @@ class recordTick(Thread):
 		if not stream["id"] in self.threads:
 			# Create the recording thread
 			self.threads[stream["id"]] = recordThread(stream["url"], stream["directory"])
-			print("My threads: %s" % self.threads)
+			print("startStream: my threads: %s" % self.threads)
 	
 	def endStream(self, id):
 		if id in self.threads:
