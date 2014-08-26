@@ -88,11 +88,11 @@ var ui = {
 			streamid = $(this).closest(".panel").data("streamid");
 			var newStatus = null
 			if( $(this).hasClass("btn-status-ok") ) {
-				newStatus = 1
+				newStatus = 0
 			} else if( $(this).hasClass("btn-status-stop") ) {
-				newStatus = 0
+				newStatus = 1
 			} else {
-				newStatus = 0
+				newStatus = 1
 			}
 			$.ajax("/api/changeStatus", {dataType:"json", data:{id:streamid, status:newStatus},error:function(){
 				console.log("Couldn't save! changeStatus");
