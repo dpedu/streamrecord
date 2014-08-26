@@ -268,4 +268,3 @@ if __name__ == '__main__' or 'uwsgi' in __name__:
 		sys.stdout = sys.stderr
 		cherrypy.config.update({'environment': 'embedded'})
 		application = cherrypy.tree.mount(pysite, "/", appconf)
-
