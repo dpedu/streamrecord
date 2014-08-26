@@ -117,6 +117,8 @@ if __name__ == '__main__' or 'uwsgi' in __name__:
 			for stream in streamList:
 				stream["time"] = db.execute('SELECT * FROM "times" WHERE streamid=?', [stream["id"]])[0]
 				stream["files"]=self._getFiles(id)
+				stream["recorder_status"] = self.REC.streamStatus(stream["id"])
+				stream["is_running"] = stream["recorder_status"] not in [0, -1] # idle states
 			return streamList[0]
 		
 		@cherrypy.expose
