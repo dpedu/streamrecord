@@ -94,7 +94,7 @@ var ui = {
 			} else {
 				newStatus = 1
 			}
-			$.ajax("/api/changeStatus", {dataType:"json", data:{id:streamid, status:newStatus},error:function(){
+			$.ajax("/api/changeStatus", {dataType:"json", data:{streamid:streamid, status:newStatus},error:function(){
 				console.log("Couldn't save! changeStatus");
 			}})
 		})

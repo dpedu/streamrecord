@@ -126,6 +126,12 @@ if __name__ == '__main__' or 'uwsgi' in __name__:
 			return json.dumps(self._getStream(id))
 		
 		@cherrypy.expose
+		def changeStatus(self, streamid, newStatus):
+			streamid = int(streamid)
+			db.execute('UPDATE "streams" SET "status"=? WHERE "ud"=? ;', [newStatus, streamid])
+			return json.dumps({"result":True})
+		
+		@cherrypy.expose
 		def changeTimeDay(self, streamid, day, value):
 			streamid = int(streamid)
 			value = value == "true"
