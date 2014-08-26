@@ -24,7 +24,7 @@
 			<div class="col-sm-2">
 				<strong>Time</strong>
 			</div>
-			<div class="col-sm-6 day-input clearfix">
+			<div class="col-sm-4 day-input clearfix">
 				<div class="dropdown pull-left">
 					<a class="dropdown-toggle btn btn-default" data-toggle="dropdown" href="#">
 						Days
@@ -51,7 +51,7 @@
 				</div>
 			</div>
 			<div class="col-sm-1">
-				<strong>Status</strong>
+				<strong>Schedule</strong>
 			</div>
 			<div class="col-sm-3">
 				<div class="btn-group btn-group-status">
@@ -59,6 +59,16 @@
 					<button type="button" class="btn btn-default btn-status-stop{{#is status 1 }} active{{/is}}"><span class="glyphicon glyphicon-stop"></span></button>
 					<button type="button" class="btn btn-default btn-status-alarm{{#is status 2 }} active{{/is}}"><span class="glyphicon glyphicon-bell"></span></button>
 				</div>
+			</div>
+			<div class="col-sm-2">
+				<strong>Now: </strong>
+				{{#is recorder_status -1 }}Idle{{/is}}
+				{{#is recorder_status 0 }}Idle{{/is}}
+				{{#is recorder_status 1 }}Idle{{/is}}
+				{{#is recorder_status 2 }}Recording{{/is}}
+				{{#is recorder_status 3 }}Merging{{/is}}
+				{{#is recorder_status 4 }}Transcoding{{/is}}
+				{{#is recorder_status 5 }}Cleaning up{{/is}}
 			</div>
 		</div>
 		{{#if message }}
