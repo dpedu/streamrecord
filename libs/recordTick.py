@@ -31,8 +31,14 @@ class recordTick(Thread):
 		#self.tick()
 		## END TESTING CODE
 		
-		self.scheduleTick()
-		print("Run exit")
+		#self.scheduleTick()
+		
+		## TESTING CODE
+		
+		while True:
+			time.sleep(self.timeToNextMinute())
+			self.tick()
+			print("Ticked")
 	
 	def tick(self):
 		print("tick (start): my threads: %s" % self.threads)
