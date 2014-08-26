@@ -36,7 +36,6 @@ class recordTick:
 			print("Ticked")
 	
 	def tick(self):
-		print("tick (start): my threads: %s" % self.threads)
 		now=datetime.datetime.now()
 		#print("Tick start: %s" % now)
 		
@@ -55,7 +54,6 @@ class recordTick:
 			# terminate each downloader
 			self.endStream(endTime["streamid"])
 		
-		print("tick (end): my threads: %s \n %s" % (self.threads, self))
 		#print("Tick end: %s" % now)
 	
 	def startStream(self, id):
@@ -66,7 +64,6 @@ class recordTick:
 		if not stream["id"] in self.threads:
 			# Create the recording thread
 			self.threads[stream["id"]] = recordThread(stream["url"], stream["directory"])
-			print("startStream: my threads: %s" % self.threads)
 	
 	def endStream(self, id):
 		if id in self.threads:
@@ -214,7 +211,7 @@ class recordThread(Thread):
 			os.unlink("files/temp/%s/%s"%(self.directory,f))
 	
 	def cancel(self):
-		print("Cancelling %s" % self.url)
+		print("Closing %s" % self.url)
 		# turn off keep-alive dow the downloader
 		self.running = False
 		# Kill the download process
