@@ -1,0 +1,48 @@
+body {
+  padding-top: 80px;
+}
+.time-input {
+	margin-left: 30px;
+}
+.time-input .hours {
+	width: 32px;
+	float: left;
+	padding: 6px 6px;
+	text-align: right;
+}
+.time-input .minutes {
+	width: 32px;
+	float: left;
+	padding: 6px 6px;
+}
+.time-input span {
+	float: left;
+	font-weight: bold;
+	padding-top: 6px;
+}
+.time-input > div {
+	height: 50px;
+}
+.time-input strong {
+	padding-top: 7px;
+}
+.streams  div.schedule-row {
+	margin-bottom: 30px;
+}
+
+/* Drop-down buttons */
+ul.dropdown-menu-form {
+    padding: 5px 10px 0;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+ul.dropdown-menu-form li {
+	margin-left: 30px;
+}
+.slider-selection {
+	background: #BABABA;
+}
+
+#playerdrop .time input {
+	display: block;
+}

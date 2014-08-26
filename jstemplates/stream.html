@@ -1,0 +1,93 @@
+<div class="panel panel-default" data-streamid="{{ id }}">
+	<div class="panel-heading">
+		<h3 class="panel-title"><a href="#view/{{ id }}">{{ name }}</a></h3>
+	</div>
+	<div class="panel-body">
+		<div class="row-fluid clearfix">
+			<div class="col-sm-2">
+				<strong>Name</strong>
+			</div>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" name="stream-name" value="{{ name }}" />
+			</div>
+			<div class="col-sm-1">
+				<strong>URL</strong>
+			</div>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" name="stream-url" value="{{ url }}" />
+			</div>
+		</div>
+		<div class="row-fluid clearfix">
+			<div class="col-sm-12"><br /></div>
+		</div>
+		<div class="row-fluid clearfix schedule-row">
+			<div class="col-sm-2">
+				<strong>Time</strong>
+			</div>
+			<div class="col-sm-6 day-input clearfix">
+				<div class="dropdown pull-left">
+					<a class="dropdown-toggle btn btn-default" data-toggle="dropdown" href="#">
+						Days
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-form" role="menu">
+						<li><label class="checkbox"><input type="checkbox" name="daysu"{{#if time.su}} checked="checked"{{/if}}>S</label></li>
+						<li><label class="checkbox"><input type="checkbox" name="daym"{{#if time.m}} checked="checked"{{/if}}>M</label></li>
+						<li><label class="checkbox"><input type="checkbox" name="dayt"{{#if time.t}} checked="checked"{{/if}}>T</label></li>
+						<li><label class="checkbox"><input type="checkbox" name="dayw"{{#if time.w}} checked="checked"{{/if}}>W</label></li>
+						<li><label class="checkbox"><input type="checkbox" name="dayr"{{#if time.r}} checked="checked"{{/if}}>R</label></li>
+						<li><label class="checkbox"><input type="checkbox" name="dayf"{{#if time.f}} checked="checked"{{/if}}>F</label></li>
+						<li><label class="checkbox"><input type="checkbox" name="daysa"{{#if time.sa}} checked="checked"{{/if}}>S</label></li>
+					</ul>
+				</div>
+				<div class="pull-left time-input">
+					<input type="text" class="form-control hours" name="stream-starthour" value="{{ time.starthour }}"/>
+					<span>&nbsp;:&nbsp;</span>
+					<input type="text" class="form-control minutes" name="stream-startmin" value="{{ time.startmin }}"/>
+					<span>&nbsp;-&nbsp;</span>
+					<input type="text" class="form-control hours" name="stream-endhour" value="{{ time.endhour }}"/>
+					<span>&nbsp;:&nbsp;</span>
+					<input type="text" class="form-control minutes" name="stream-endmin" value="{{ time.endmin }}"/>
+				</div>
+			</div>
+			<div class="col-sm-1">
+				<strong>Status</strong>
+			</div>
+			<div class="col-sm-3">
+				<div class="btn-group btn-group-status">
+					<button type="button" class="btn btn-default btn-status-ok{{#is status 0 }} active{{/is}}"><span class="glyphicon glyphicon-ok"></span></button>
+					<button type="button" class="btn btn-default btn-status-stop{{#is status 1 }} active{{/is}}"><span class="glyphicon glyphicon-stop"></span></button>
+					<button type="button" class="btn btn-default btn-status-alarm{{#is status 2 }} active{{/is}}"><span class="glyphicon glyphicon-bell"></span></button>
+				</div>
+			</div>
+		</div>
+		{{#if message }}
+		<div class="row-fluid clearfix errorpanel">
+			<div class="col-sm 12">
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<h3 class="panel-title">Error</h3>
+					</div>
+					<div class="panel-body">
+						{{ message }}
+					</div>
+				</div>
+			</div>
+		</div>
+		{{/if}}
+		{{#if files }}
+		<div class="row-fluid clearfix ">
+		<div class="col-sm 12">
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h3 class="panel-title">Files</h3>
+				</div>
+				<div class="panel-body">
+					{{>stream_downloads}}
+					</div>
+				</div>
+			</div>
+		</div>
+		{{/if}}
+	</div>
+</div>

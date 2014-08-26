@@ -1,0 +1,22 @@
+<div id="downloads">
+	{{#each streams}}
+	<div class="panel panel-default" data-streamid="{{ id }}">
+		<div class="panel-heading">
+			<h3 class="panel-title"><a href="#view/{{ id }}">{{ name }}</a></h3>
+		</div>
+		<div class="panel-body">
+			{{>stream_downloads}}
+		</div>
+	</div>
+	{{/each}}
+</div>
+<div id="playerdrop">
+	
+	<div class="controls">
+		
+	</div>
+	<div class="time">
+		<input id="player-slider" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="0"/>
+	</div>
+	<div id="player"></div>
+</div>

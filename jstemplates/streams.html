@@ -1,0 +1,7 @@
+<h1>{{#is single true}}Viewing: {{streams.[0].name}} {{else}}Scheduled Recordings{{/is}}</h1>
+<hr />
+<div class="streams">
+	{{#each streams}}
+	{{>stream}}
+	{{/each}}
+</div>

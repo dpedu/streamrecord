@@ -1,0 +1,2 @@
+{% for item in templates %}	<script id="template-{{item.name}}" type="text/html">{{item.content}}</script>
+{% endfor %}	<script type="text/javascript">var templateNames = {{ names }};</script>
