@@ -66,7 +66,6 @@ if __name__ == '__main__' or 'uwsgi' in __name__:
 		def __init__(self):
 			print("Siteroot init !")
 			self.templateCache = self.cacheTemplates()
-			self.REC = recordTick(db)
 		
 		def cacheTemplates(self):
 			templateFiles = os.listdir("jstemplates/")
@@ -93,7 +92,8 @@ if __name__ == '__main__' or 'uwsgi' in __name__:
 	
 	class api(object):
 		def __init__(self):
-			pass
+			self.REC = recordTick(db)
+		
 		@cherrypy.expose
 		def getStreams(self):
 			streamList = db.execute('SELECT * FROM "streams"')
