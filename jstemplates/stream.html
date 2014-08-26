@@ -53,14 +53,14 @@
 			<div class="col-sm-1">
 				<strong>Schedule</strong>
 			</div>
-			<div class="col-sm-3">
+			<div class="col-sm-2">
 				<div class="btn-group btn-group-status">
 					<button type="button" class="btn btn-default btn-status-ok{{#is status 0 }} active{{/is}}"><span class="glyphicon glyphicon-ok"></span></button>
 					<button type="button" class="btn btn-default btn-status-stop{{#is status 1 }} active{{/is}}"><span class="glyphicon glyphicon-stop"></span></button>
 					<button type="button" class="btn btn-default btn-status-alarm{{#is status 2 }} active{{/is}}"><span class="glyphicon glyphicon-bell"></span></button>
 				</div>
 			</div>
-			<div class="col-sm-2">
+			<div class="col-sm-3">
 				<strong>Now: </strong>
 				{{#is recorder_status -1 }}Idle{{/is}}
 				{{#is recorder_status 0 }}Idle{{/is}}
