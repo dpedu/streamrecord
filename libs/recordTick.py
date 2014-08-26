@@ -78,6 +78,9 @@ class recordTick(Thread):
 		
 		return self.threads[id].status
 	
+	def getSelf(self):
+		return self
+	
 	def scheduleTick(self):
 		# schedule tick in the next minute
 		self.timer.enter(self.timeToNextMinute(), 1, self.tick)

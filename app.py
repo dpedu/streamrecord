@@ -259,6 +259,8 @@ if __name__ == '__main__' or 'uwsgi' in __name__:
 		def getRecStatus(self, id):
 			print(REC)
 			print(REC.threads)
+			print(REC.getSelf())
+			print(REC.getSelf().threads)
 			return json.dumps({"data":REC.streamStatus(int(id))})
 	
 	pysite = siteRoot()
