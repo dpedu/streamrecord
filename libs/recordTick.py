@@ -69,6 +69,12 @@ class recordTick(Thread):
 			self.threads[id].cancel()
 			del self.threads[id]
 	
+	def streamStatus(self, id):
+		if not id in self.threads:
+			return 0
+		
+		return self.threads[id].status
+	
 	def scheduleTick(self):
 		# schedule tick in the next minute
 		self.timer.enter(self.timeToNextMinute(), 1, self.tick)
@@ -90,6 +96,8 @@ class recordTick(Thread):
 class recordThread(Thread):
 	def __init__(self, url, directory):
 		Thread.__init__(self)
+		# Status
+		self.status = 1
 		# URL to download
 		self.url = url
 		# Directory name to use
@@ -104,14 +112,19 @@ class recordThread(Thread):
 	def run(self):
 		print("%s starting downloader for %s" % (datetime.datetime.now(), self.url))
 		# Download the stream to temp file(s)
+		self.status = 2
 		self.downloadStream()
 		# Combine files into 1 audio file
+		self.status = 3
 		self.mergeStream()
 		# Encode to mp3
+		self.status = 4
 		self.transcodeStream()
 		# Delete temp files, move recording to save directory
+		self.status = 5
 		self.cleanup()
 		print("%s finished downloader for %s" % (datetime.datetime.now(), self.url))
+		self.status = 0
 		
 	def downloadStream(self):
 		self.startdate = datetime.datetime.now()
