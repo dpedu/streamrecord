@@ -193,6 +193,7 @@ class recordThread(Thread):
 			os.unlink("files/temp/%s/%s"%(self.directory,f))
 	
 	def cancel(self):
+		print("Cancelling %s" % self.url)
 		# turn off keep-alive dow the downloader
 		self.running = False
 		# Kill the download process
