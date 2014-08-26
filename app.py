@@ -257,6 +257,8 @@ if __name__ == '__main__' or 'uwsgi' in __name__:
 			
 		@cherrypy.expose
 		def getRecStatus(self, id):
+			print(REC)
+			print(REC.threads)
 			return json.dumps({"data":REC.streamStatus(int(id))})
 	
 	pysite = siteRoot()
