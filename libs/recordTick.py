@@ -71,7 +71,7 @@ class recordTick(Thread):
 	
 	def streamStatus(self, id):
 		if not id in self.threads:
-			return 0
+			return -1
 		
 		return self.threads[id].status
 	
