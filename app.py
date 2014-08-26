@@ -49,7 +49,7 @@ if __name__ == '__main__' or 'uwsgi' in __name__:
 	# db - slightly custom sqlite3 object. rows = db.execute(query, args)
 	db = database()
 	# REC - recorder thread - see recordTick.py
-	REC = recordTick(db)
+	#REC = recordTick(db)
 	
 	def render(template, args):
 		templatesCache = pysite.cacheTemplates()
@@ -66,6 +66,7 @@ if __name__ == '__main__' or 'uwsgi' in __name__:
 		def __init__(self):
 			print("Siteroot init !")
 			self.templateCache = self.cacheTemplates()
+			self.REC = recordTick(db)
 		
 		def cacheTemplates(self):
 			templateFiles = os.listdir("jstemplates/")
@@ -257,11 +258,11 @@ if __name__ == '__main__' or 'uwsgi' in __name__:
 			
 		@cherrypy.expose
 		def getRecStatus(self, id):
-			print(REC)
-			print(REC.threads)
-			print(REC.getSelf())
-			print(REC.getSelf().threads)
-			return json.dumps({"data":REC.streamStatus(int(id))})
+			print(self.REC)
+			print(self.REC.threads)
+			print(self.REC.getSelf())
+			print(self.REC.getSelf().threads)
+			return json.dumps({"data":self.REC.streamStatus(int(id))})
 	
 	pysite = siteRoot()
 	pysite.api = api()
