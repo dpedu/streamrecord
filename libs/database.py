@@ -3,10 +3,9 @@ import sqlite3
 
 class database:
 	def __init__(self):
-		self.db = None
+		self.db = self.openDB()
 		# TODO: If db.sqlite doesn't exist, create one with the following demo data
 		#self.createDatabase()
-		self.openDB()
 	
 	def createDatabase(self):
 		queries = [
