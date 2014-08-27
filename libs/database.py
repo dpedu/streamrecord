@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 import sqlite3
-import threading
 
-class database(threading.Thread):
+class database:
 	def __init__(self):
 		threading.Thread.__init__(self)
 		self.db = None
 		# TODO: If db.sqlite doesn't exist, create one with the following demo data
 		#self.createDatabase()
-		self.start()
+		self.openDB()
 	
 	def createDatabase(self):
 		queries = [
@@ -17,9 +16,6 @@ class database(threading.Thread):
 		"""INSERT INTO "streams" ("id","user","name","url","directory","status","message") VALUES (NULL,NULL,'WCMF Breakroom','http://1681.live.streamtheworld.com/WCMFFMAAC','wcmf-breakroom','0','')""",
 		"""INSERT INTO "times" ("id","streamid","su","m","t","w","r","f","sa","starthour","startmin","endhour","endmin") VALUES (NULL,'1','0','1','1','1','1','1','0','2','0','7','15')"""
 		]
-	
-	def run(self):
-		self.db = self.openDB()
 	
 	def openDB(self):
 		db = sqlite3.connect("db.sqlite", check_same_thread=False, cached_statements=0, isolation_level=None)

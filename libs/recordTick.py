@@ -17,24 +17,6 @@ class recordTick:
 		# list of downloader threads
 		self.threads = {}
 	
-	def run(self):
-		time.sleep(3)
-		
-		## TESTING CODE
-		#now=datetime.datetime.now()
-		#self.db.execute('UPDATE "times" SET "starthour"=?, "startmin"=?, "endhour"=?, "endmin"=? WHERE "streamid"=? ;', (now.hour, now.minute, now.hour, now.minute+1, 1))
-		#self.tick()
-		## END TESTING CODE
-		
-		#self.scheduleTick()
-		
-		## TESTING CODE
-		
-		while True:
-			time.sleep(self.timeToNextMinute())
-			self.tick()
-			print("Ticked")
-	
 	def tick(self):
 		now=datetime.datetime.now()
 		#print("Tick start: %s" % now)
@@ -79,13 +61,6 @@ class recordTick:
 	
 	def getSelf(self):
 		return self
-	
-	def scheduleTick(self):
-		# schedule tick in the next minute
-		self.timer.enter(self.timeToNextMinute(), 1, self.tick)
-		self.timer.run()
-		# Schedule the next tick
-		Thread(target=self.scheduleTick).start()
 	
 	def timeToNextMinute(self):
 		# calculate time to the milliscond until the next minute rolls over
