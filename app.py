@@ -101,7 +101,7 @@ if __name__ == '__main__' or 'uwsgi' in __name__:
 		
 		@cherrypy.expose
 		def getStreams(self):
-			streamList = db.execute('SELECT * FROM "streams"')
+			streamList = db.execute('SELECT * FROM "streams" ORDER BY "name" ASC;')
 			
 			for stream in streamList:
 				stream["time"] = db.execute('SELECT * FROM "times" WHERE streamid=?', [stream["id"]])[0]
