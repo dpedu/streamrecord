@@ -228,9 +228,9 @@ if __name__ == '__main__' or 'uwsgi' in __name__:
 			files.sort()
 			allFiles = []
 			for i in range(0, len(files)):
+				item = files[i]
 				if item[0:1]==".":
 					continue;
-				item = files[i]
 				size = os.path.getsize(recordingsDir+item)
 				allFiles.append({
 					"filename":item,
