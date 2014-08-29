@@ -266,10 +266,10 @@ if __name__ == '__main__' or 'uwsgi' in __name__:
 			stream = self._getStream(id)
 			# Thu, 31 Jul 2014 07:13:48 +0000
 			for f in stream["files"]:
-				f["date"]=datetime.fromtimestamp(f["date"]).strftime("%a, %m %b %Y %H:%M:%S +%z")
+				f["date"]=datetime.fromtimestamp(f["date"]).strftime("%a, %m %b %Y %H:%M:%S +0800")
 			return str.encode(render("podcast.html", {
 				"stream":stream,
-				"builddate": datetime.now().strftime("%a, %m %b %Y %H:%M:%S +0100")#Thu, 31 Jul 2014 07:13:48 +0000
+				"builddate": datetime.now().strftime("%a, %m %b %Y %H:%M:%S +0800")#Thu, 31 Jul 2014 07:13:48 +0000
 			}))
 				
 			
