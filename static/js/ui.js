@@ -23,6 +23,9 @@ var ui = {
 	view:function() {
 		ui.__streamstatus()
 	},
+	files:function() {
+		$('.player-slider').slider();
+	}
 	scheduleList:function() {
 		ui.__streamstatus()
 	},
