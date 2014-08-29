@@ -45,7 +45,10 @@ ul.dropdown-menu-form li {
 
 div.slider.slider-horizontal {
 	display: block;
-	width: auto;
+	width: 100% !important;
+}
+#playerdrop {
+	margin-bottom: 50px;
 }
 #playerdrop > div {
 	float: left;
@@ -59,5 +62,6 @@ div.slider.slider-horizontal {
 	width: 100%
 }
 #playerdrop > div.time {
-	width: 80%
+	width: 80%;
+	padding: 5px 20px 5px 0px;
 }

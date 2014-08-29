@@ -153,7 +153,7 @@ var behaviors = {
 					console.log($("#player").data("jPlayer").status.duration)
 					
 					$(".time-holder").html('<input class="player-slider" type="text" data-slider-step="1" data-slider-value="0"/>')
-					$(".time-holder .player-slider").slider({min:0,max:parseInt($("#player").data("jPlayer").status.duration+1)})
+					$(".time-holder .player-slider").slider({min:0,max:parseInt($("#player").data("jPlayer").status.duration+1),tooltip:"hide"})
 					
 				}
 			})
