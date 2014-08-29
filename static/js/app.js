@@ -160,8 +160,13 @@ var behaviors = {
 						
 						$(this).removeClass("dragging");
 					}).on("slide", function(){
+						paused = $("#player").data().jPlayer.status.paused
 						newTime = $(".time-holder .player-slider").slider('getValue').val();
-						$("#player").jPlayer("play", parseInt(newTime))
+						if(paused) {
+							$("#player").jPlayer("pause", parseInt(newTime))
+						} else {
+							$("#player").jPlayer("play", parseInt(newTime))
+						}
 					});
 				},
 				play:function() {
@@ -181,7 +186,16 @@ var behaviors = {
 				}
 			})
 			
-			
+			$("#playerdrop .playbtn").click(function(){
+				paused = $("#player").data().jPlayer.status.paused
+				if(paused) {
+					$("#player").jPlayer("play")
+					$(this).find("span").removeClass("glyphicon-play").addClass("glyphicon-pause")
+				} else {
+					$("#player").jPlayer("pause")
+					$(this).find("span").removeClass("glyphicon-pause").addClass("glyphicon-play")
+				}
+			})
 			
 			$(".playlink").on("click", function(){
 				url = $(this).data("url")
@@ -189,10 +203,7 @@ var behaviors = {
 					title: "Test",
 					mp3: url
 				}).jPlayer("play")
-				
-				$("#playerdrop .playbtn").click(function(){
-					
-				})
+				$("#playerdrop .playbtn").addClass("glyphicon-pause")
 			})
 			
 			done()
