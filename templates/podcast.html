@@ -1,20 +1,24 @@
-<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<?xml version="1.0" encoding="UTF-8" ?>n")
+<rss version="2.0">
 	<channel>
-		<title>Radio Feed - {{ stream.name}}</title>
-		<link>http://192.168.1.200:3000/api/getPodcast?id=1</link>
+		<title>{{ stream.name }}</title>
 		<description>Stream ID: {{ stream.id }}</description>
-		<atom:link href="http://192.168.1.200:3000/api/getPodcast?id={{ stream.id }}" rel="self"/>
-		<generator>python-feedgen</generator>
-		<language>en</language>
+		<link>http://192.168.1.200:3000/api/getPodcast?id={{ stream.id }}</link>
+		<ttl>60</ttl>
+		<!--<image><url>" + rssImageUrl + "</url><title>" + rssTitle + "</title><link>" + rssLink + "</link></image>-->
+		<copyright>Streamrecord 2014</copyright>
 		<lastBuildDate>{{ builddate }}</lastBuildDate>
+		<pubDate>{{ builddate }}</pubDate>
+		<webMaster>streamrecord@raid.local</webMaster>
 		{% for file in stream.files %}
-		<item>
+			<item>
 			<title>{{ file.filename }}</title>
-			<link>http://192.168.1.200:3000/api/download?id={{ stream.id }}&amp;fn={{ file.filenum }}</link>
-			<guid isPermaLink="false">http://192.168.1.200:3000/api/download?id={{ stream.id }}&amp;fn={{ file.filenum }}</guid>
-			<media:content url="http://192.168.1.200:3000/api/download?id={{ stream.id }}&amp;fn={{ file.filenum }}" fileSize="{{ file.bytes }}"/>
-			<pubDate>Wed, 30 Jul 2014 23:49:00 +0100</pubDate>
-		</item>
+			<description>{{ file.bytes/1000/1000 }} MB</description>
+			<link>http://192.168.1.200:30000/api/download?id={{ stream.id }}&amp;fn={{ file.filenum }}</link>
+			<guid>http://192.168.1.200:30000/api/download?id={{ stream.id }}&amp;fn={{ file.filenum }}</guid>
+			<pubDate>{{ file.date }} </pubDate>
+			<enclosure url="http://192.168.1.200:30000/api/download?id={{ stream.id }}&amp;fn={{ file.filenum }}" length="{{ file.bytes }}" type="audio/mpeg" />
+			</item>
 		{% endfor %}
 	</channel>
 </rss>
