@@ -54,21 +54,21 @@ div.slider.slider-horizontal {
 	float: left;
 }
 #playerdrop > div.controls {
-	min-width: 55px;
-	width: 20%
+	min-width: 45px;
+	width: 15%
 }
 #playerdrop > div.controls button {
 	display: block;
 	width: 100%
 }
 #playerdrop > div.timeshow {
-	width: 10%;
+	width: 20%;
 	text-align: center;
 	font-size: 18px;
 	font-weight: 500;
 	padding-top: 4px;
 }
 #playerdrop > div.time {
-	width: 70%;
+	width: 65%;
 	padding: 6px 8px 5px 20px;
 }

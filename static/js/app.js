@@ -158,14 +158,15 @@ var behaviors = {
 						$(this).addClass("dragging")
 					}).on("slideStop", function(){
 						$(this).removeClass("dragging");
-					}).on("slide", function(){
-						paused = $("#player").data().jPlayer.status.paused
 						newTime = $(".time-holder .player-slider").slider('getValue').val();
 						if(paused) {
 							$("#player").jPlayer("pause", parseInt(newTime))
 						} else {
 							$("#player").jPlayer("play", parseInt(newTime))
 						}
+					}).on("slide", function(){
+						paused = $("#player").data().jPlayer.status.paused
+						newTime = $(".time-holder .player-slider").slider('getValue').val();
 						minutes = Math.floor(newTime/60)
 						seconds = Math.floor(newTime-(minutes*60))
 						$(".timeshow").html(minutes+":"+(seconds<10?"0":"")+seconds)
