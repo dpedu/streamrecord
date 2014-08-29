@@ -43,6 +43,21 @@ ul.dropdown-menu-form li {
 	background: #BABABA;
 }
 
-#playerdrop .time input {
-	
+div.slider.slider-horizontal {
+	display: block;
+	width: auto;
+}
+#playerdrop > div {
+	float: left;
+}
+#playerdrop > div.controls {
+	min-width: 55px;
+	width: 20%
+}
+#playerdrop > div.controls button {
+	display: block;
+	width: 100%
+}
+#playerdrop > div.time {
+	width: 80%
 }
