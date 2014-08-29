@@ -164,8 +164,8 @@ var behaviors = {
 						} else {
 							$("#player").jPlayer("play", parseInt(newTime))
 						}
+						console.log("slideStop")
 					}).on("slide", function(){
-						paused = $("#player").data().jPlayer.status.paused
 						newTime = $(".time-holder .player-slider").slider('getValue').val();
 						minutes = Math.floor(newTime/60)
 						seconds = Math.floor(newTime-(minutes*60))
