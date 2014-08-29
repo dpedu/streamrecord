@@ -168,9 +168,9 @@ var behaviors = {
 					}).on("slide", function(){
 						newTime = $(".time-holder .player-slider").slider('getValue').val();
 						hours =  Math.floor(newTime/60/60)
-						minutes = Math.floor(newTime/60)%60
+						minutes = Math.floor(newTime/60)
 						seconds = Math.floor(newTime-(minutes*60))
-						$(".timeshow").html((hours>0?hours+":":"")+minutes+":"+(seconds<10?"0":"")+seconds)
+						$(".timeshow").html((hours>0?hours+":":"")+(minutes%60<10?"0":"")+minutes%60+":"+(seconds<10?"0":"")+seconds)
 					});
 				},
 				play:function() {
@@ -186,9 +186,9 @@ var behaviors = {
 					// And update the time
 					newTime = event.jPlayer.status.currentTime;
 					hours =  Math.floor(newTime/60/60)
-					minutes = Math.floor(newTime/60)%60
+					minutes = Math.floor(newTime/60)
 					seconds = Math.floor(newTime-(minutes*60))
-					$(".timeshow").html((hours>0?hours+":":"")+minutes+":"+(seconds<10?"0":"")+seconds)
+					$(".timeshow").html((hours>0?hours+":":"")+(minutes%60<10?"0":"")+minutes%60+":"+(seconds<10?"0":"")+seconds)
 				}
 			})
 			
