@@ -159,7 +159,10 @@ var behaviors = {
 					
 				},
 				play:function() {
-					console.log("Play event")
+					
+				},
+				timeupdate:function() {
+					console.log("Time update")
 				}
 			})
 			
