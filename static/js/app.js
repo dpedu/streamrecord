@@ -157,7 +157,8 @@ var behaviors = {
 						// Add a class to the slider on hover
 						$(this).addClass("dragging")
 					}).on("slideStop", function(){
-						newTime = $(".time-holder .player-slider").slider('getValue');
+						newTime = $(".time-holder .player-slider").slider('getValue').val();
+						console.log(newTime)
 						$("#player").jPlayer("play", newTime)
 						$(this).removeClass("dragging");
 					});
