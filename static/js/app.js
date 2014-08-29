@@ -157,7 +157,6 @@ var behaviors = {
 						// Add a class to the slider on hover
 						$(this).addClass("dragging")
 					}).on("slideStop", function(){
-						
 						$(this).removeClass("dragging");
 					}).on("slide", function(){
 						paused = $("#player").data().jPlayer.status.paused
@@ -167,6 +166,9 @@ var behaviors = {
 						} else {
 							$("#player").jPlayer("play", parseInt(newTime))
 						}
+						minutes = Math.floor(newTime/60)
+						seconds = Math.floor(newTime-(minutes*60))
+						$(".timeshow").html(minutes+":"+(seconds<10?"0":"")+seconds)
 					});
 				},
 				play:function() {
