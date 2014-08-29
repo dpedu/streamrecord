@@ -158,8 +158,7 @@ var behaviors = {
 						$(this).addClass("dragging")
 					}).on("slideStop", function(){
 						newTime = $(".time-holder .player-slider").slider('getValue').val();
-						console.log(newTime)
-						$("#player").jPlayer("play", newTime)
+						$("#player").jPlayer("play", parseInt(newTime))
 						$(this).removeClass("dragging");
 					});
 				},
