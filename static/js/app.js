@@ -155,8 +155,14 @@ var behaviors = {
 					$(".time-holder").html('<input class="player-slider" type="text" data-slider-step="1" data-slider-value="0"/>')
 					$(".time-holder .player-slider").slider({min:0,max:parseInt($("#player").data("jPlayer").status.duration+1),tooltip:"hide"})
 					
+					$(".time-holder input").onChn
+					
+				},
+				play:function() {
+					console.log("Play event")
 				}
 			})
+			
 			
 			
 			$(".playlink").on("click", function(){
@@ -166,11 +172,9 @@ var behaviors = {
 					mp3: url
 				}).jPlayer("play")
 				
-				
-				
-				
-				
-				//$("#player-slider").slider()
+				$("#playerdrop .playbtn").click(function(){
+					
+				})
 			})
 			
 			done()

@@ -61,7 +61,10 @@ div.slider.slider-horizontal {
 	display: block;
 	width: 100%
 }
+#playerdrop > div.timeshow {
+	width: 15%
+}
 #playerdrop > div.time {
-	width: 80%;
+	width: 65%;
 	padding: 5px 8px 5px 20px;
 }
