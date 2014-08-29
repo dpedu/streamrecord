@@ -13,7 +13,7 @@
 		{% for file in stream.files %}
 			<item>
 			<title>{{ file.filename }}</title>
-			<description>{{ file.bytes/1000/1000 }} MB</description>
+			<description>{{ file.mbytes }} MB</description>
 			<link>http://192.168.1.200:30000/api/download?id={{ stream.id }}&amp;fn={{ file.filenum }}</link>
 			<guid>http://192.168.1.200:30000/api/download?id={{ stream.id }}&amp;fn={{ file.filenum }}</guid>
 			<pubDate>{{ file.date }}</pubDate>
