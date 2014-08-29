@@ -16,7 +16,7 @@
 			<description>{{ file.bytes/1000/1000 }} MB</description>
 			<link>http://192.168.1.200:30000/api/download?id={{ stream.id }}&amp;fn={{ file.filenum }}</link>
 			<guid>http://192.168.1.200:30000/api/download?id={{ stream.id }}&amp;fn={{ file.filenum }}</guid>
-			<pubDate>{{ file.date }} </pubDate>
+			<pubDate>{{ file.date }}</pubDate>
 			<enclosure url="http://192.168.1.200:30000/api/download?id={{ stream.id }}&amp;fn={{ file.filenum }}" length="{{ file.bytes }}" type="audio/mpeg" />
 			</item>
 		{% endfor %}
