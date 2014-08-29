@@ -151,6 +151,9 @@ var behaviors = {
 				swfPath:"/static/player/Jplayer.swf",
 				loadedmetadata: function() {
 					console.log($("#player").data("jPlayer").status.duration)
+					
+					$(".player-slider").data(".slider-max", parseInt($("#player").data("jPlayer").status.duration+1)).slider()
+					
 				}
 			})
 			
