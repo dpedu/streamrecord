@@ -167,9 +167,10 @@ var behaviors = {
 						$(this).removeClass("dragging");
 					}).on("slide", function(){
 						newTime = $(".time-holder .player-slider").slider('getValue').val();
+						hours =  Math.floor(newTime/60/60)
 						minutes = Math.floor(newTime/60)
 						seconds = Math.floor(newTime-(minutes*60))
-						$(".timeshow").html(minutes+":"+(seconds<10?"0":"")+seconds)
+						$(".timeshow").html((hours>0?hours+":":"")+minutes+":"+(seconds<10?"0":"")+seconds)
 					});
 				},
 				play:function() {
@@ -183,9 +184,10 @@ var behaviors = {
 					// Update the slider
 					$(".time-holder .player-slider").slider('setValue', event.jPlayer.status.currentTime);
 					// And update the time
-					minutes = Math.floor(event.jPlayer.status.currentTime/60)
-					seconds = Math.floor(event.jPlayer.status.currentTime-(minutes*60))
-					$(".timeshow").html(minutes+":"+(seconds<10?"0":"")+seconds)
+					hours =  Math.floor(newTime/60/60)
+					minutes = Math.floor(newTime/60)
+					seconds = Math.floor(newTime-(minutes*60))
+					$(".timeshow").html((hours>0?hours+":":"")+minutes+":"+(seconds<10?"0":"")+seconds)
 				}
 			})
 			
