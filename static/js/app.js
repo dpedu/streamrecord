@@ -18,6 +18,14 @@ $(document).ready(function(){
 	initTemplates(templateNames, function(){
 		$(window).trigger("hashchange");
 	})
+	
+	// Show time
+	setInterval(function(){
+		var n = new Date();
+		var mins = n.getMinutes()
+		var secs = n.getSeconds()
+		$("#time").html(n.getHours()+":"+(mins<10?"0"+mins:mins)+":"+(secs<10?"0"+secs:secs))
+	}, 1000)
 });
 
 function initTemplates(names, done) {
