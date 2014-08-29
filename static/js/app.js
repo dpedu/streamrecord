@@ -165,7 +165,7 @@ var behaviors = {
 					$(".time-holder .player-slider").slider('setValue', event.jPlayer.status.currentTime);
 					minutes = parseInt(event.jPlayer.status.currentTime/60)
 					seconds = parseInt(event.jPlayer.status.currentTime-(minutes*60))
-					$(".timeshow").html(minutes+":"+(seconds<10?"0":"")+sseconds)
+					$(".timeshow").html(minutes+":"+(seconds<10?"0":"")+seconds)
 					
 					
 				}
