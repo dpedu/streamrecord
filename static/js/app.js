@@ -157,14 +157,14 @@ var behaviors = {
 						// Add a class to the slider on hover
 						$(this).addClass("dragging")
 					}).on("slideStop", function(){
-						$(this).removeClass("dragging");
+						paused = $("#player").data().jPlayer.status.paused
 						newTime = $(".time-holder .player-slider").slider('getValue').val();
 						if(paused) {
 							$("#player").jPlayer("pause", parseInt(newTime))
 						} else {
 							$("#player").jPlayer("play", parseInt(newTime))
 						}
-						console.log("slideStop")
+						$(this).removeClass("dragging");
 					}).on("slide", function(){
 						newTime = $(".time-holder .player-slider").slider('getValue').val();
 						minutes = Math.floor(newTime/60)
