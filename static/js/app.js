@@ -150,24 +150,27 @@ var behaviors = {
 				supplied:"mp3",
 				swfPath:"/static/player/Jplayer.swf",
 				loadedmetadata: function() {
-					console.log($("#player").data("jPlayer").status.duration)
-					
+					// Create slider with a max val of this track's length
 					$(".time-holder").html('<input class="player-slider" type="text" data-slider-step="1" data-slider-value="0"/>')
-					$(".time-holder .player-slider").slider({min:0,max:parseInt($("#player").data("jPlayer").status.duration+1),tooltip:"hide"})
-					
-					
-					
+					$(".time-holder .player-slider").slider({min:0,max:parseInt($("#player").data("jPlayer").status.duration+1),tooltip:"hide",slideStart:function(){
+						// Add a class to the slider on hover
+						$(this).parent().addClass("dragging")
+					},slideStop:function(){
+						$(this).parent().removeClass("dragging")
+					}})
 				},
 				play:function() {
 					
 				},
 				timeupdate:function(event) {
+					// About 4 times a second
+					// See if we are not sliding
+					
 					$(".time-holder .player-slider").slider('setValue', event.jPlayer.status.currentTime);
+					// And update the time
 					minutes = Math.floor(event.jPlayer.status.currentTime/60)
 					seconds = Math.floor(event.jPlayer.status.currentTime-(minutes*60))
 					$(".timeshow").html(minutes+":"+(seconds<10?"0":"")+seconds)
-					
-					
 				}
 			})
 			
