@@ -25,7 +25,7 @@ var ui = {
 	},
 	files:function() {
 		$('.player-slider').slider();
-	}
+	},
 	scheduleList:function() {
 		ui.__streamstatus()
 	},
