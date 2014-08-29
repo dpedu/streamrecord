@@ -152,20 +152,23 @@ var behaviors = {
 				loadedmetadata: function() {
 					// Create slider with a max val of this track's length
 					$(".time-holder").html('<input class="player-slider" type="text" data-slider-step="1" data-slider-value="0"/>')
-					$(".time-holder .player-slider").slider({min:0,max:parseInt($("#player").data("jPlayer").status.duration+1),tooltip:"hide",slideStart:function(){
+					$(".time-holder .player-slider").slider({min:0,max:parseInt($("#player").data("jPlayer").status.duration+1),tooltip:"hide"})
+					$(".time-holder .player-slider").on("slideStart", function(){
 						// Add a class to the slider on hover
-						$(this).parent().addClass("dragging")
-					},slideStop:function(){
-						$(this).parent().removeClass("dragging")
-					}})
+						$(this).addClass("dragging")
+					}).on("slideStop", function(){
+						$(this).removeClass("dragging")
+					});
 				},
 				play:function() {
 					
 				},
 				timeupdate:function(event) {
-					// About 4 times a second
 					// See if we are not sliding
-					
+					if($(".time-holder .player-slider").hasClass("dragging")) {
+						return;
+					}
+					// Update the slider
 					$(".time-holder .player-slider").slider('setValue', event.jPlayer.status.currentTime);
 					// And update the time
 					minutes = Math.floor(event.jPlayer.status.currentTime/60)
