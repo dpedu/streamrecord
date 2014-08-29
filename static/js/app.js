@@ -161,8 +161,8 @@ var behaviors = {
 				play:function() {
 					
 				},
-				timeupdate:function() {
-					console.log("Time update")
+				timeupdate:function(event) {
+					$(".time-holder .player-slider").slider('setValue', event.jPlayer.status.currentTime)
 				}
 			})
 			
