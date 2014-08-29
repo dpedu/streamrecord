@@ -165,7 +165,6 @@ var behaviors = {
 							$("#player").jPlayer("play", parseInt(newTime))
 						}
 						$(this).removeClass("dragging");
-						console.log("slidestop")
 					}).on("slide", function(){
 						newTime = $(".time-holder .player-slider").slider('getValue').val();
 						minutes = Math.floor(newTime/60)
