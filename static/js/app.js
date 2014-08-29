@@ -152,7 +152,7 @@ var behaviors = {
 				loadedmetadata: function() {
 					console.log($("#player").data("jPlayer").status.duration)
 					
-					$(".player-slider").attr("data-slider-max", parseInt($("#player").data("jPlayer").status.duration+1)).slider()
+					$(".player-slider").slider({min:0,max:parseInt($("#player").data("jPlayer").status.duration+1)})
 					
 				}
 			})

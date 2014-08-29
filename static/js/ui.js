@@ -24,7 +24,7 @@ var ui = {
 		ui.__streamstatus()
 	},
 	files:function() {
-		$('.player-slider').slider();
+		//$('.player-slider').slider();
 	},
 	scheduleList:function() {
 		ui.__streamstatus()
