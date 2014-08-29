@@ -184,6 +184,7 @@ var behaviors = {
 					// Update the slider
 					$(".time-holder .player-slider").slider('setValue', event.jPlayer.status.currentTime);
 					// And update the time
+					newTime = event.jPlayer.status.currentTime;
 					hours =  Math.floor(newTime/60/60)
 					minutes = Math.floor(newTime/60)
 					seconds = Math.floor(newTime-(minutes*60))
