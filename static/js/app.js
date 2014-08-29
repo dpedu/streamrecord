@@ -203,7 +203,7 @@ var behaviors = {
 					title: "Test",
 					mp3: url
 				}).jPlayer("play")
-				$("#playerdrop .playbtn").addClass("glyphicon-pause")
+				$("#playerdrop .playbtn span").addClass("glyphicon-pause")
 			})
 			
 			done()
