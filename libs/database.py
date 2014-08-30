@@ -19,7 +19,9 @@ class database:
 			db = sqlite3.connect("db.sqlite", check_same_thread=False, cached_statements=0, isolation_level=None)
 			cursor = db.cursor()
 			for query in queries:
+				print("Executing: %s" % query)
 				cursor.execute(query)
+			cursor.commit()
 			db.close()
 		
 	def openDB(self):
