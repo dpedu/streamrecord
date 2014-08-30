@@ -147,6 +147,7 @@ var behaviors = {
 			
 			// Create player
 			player = $("#player").jPlayer({
+				solution:"html, flash",
 				supplied:"mp3",
 				swfPath:"/static/player/Jplayer.swf",
 				loadedmetadata: function() {
