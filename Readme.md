@@ -19,6 +19,7 @@ A python3 web app to record internet radio streams and present them in a podcast
 - Write the config for uwsgi, start that daemon
 - Write the config for nginx, and view the page.
 - Create a symbolic link in static/ pointing to files/output/. Command: `mkdir files/ ; mkdir files/output/ ; mkdir files/temp/ ; ln -s ../files/output static/test `
+- Add a cron job to call http://my.server/api/tick every minute. 
 
 Podcast usage: each schedule has a numerical id. To view the podcast, http://my.server/api/getPodcast?id=[number]
 

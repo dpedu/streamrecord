@@ -13,7 +13,6 @@ import signal
 from jinja2 import Environment, FileSystemLoader
 from libs import database
 from libs import recordTick
-from feedgen.feed import FeedGenerator
 from datetime import datetime
 
 if __name__ == '__main__' or 'uwsgi' in __name__:
