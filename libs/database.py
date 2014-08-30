@@ -20,7 +20,6 @@ class database:
 			for query in queries:
 				print("Executing: %s" % query)
 				cursor.execute(query)
-			cursor.commit()
 			db.close()
 		
 	def openDB(self):
