@@ -17,6 +17,7 @@ A python3 web app to record internet radio streams and present them in a podcast
 
 Something like:
 
+```
 [uwsgi]
 uid = streamrecord
 pid = streamrecord
@@ -32,11 +33,13 @@ pidfile = /tmp/streamrecord.pid
 enable-threads = true
 no-threads-wait = true
 die-on-term = true
+```
 
 ### Nginx config
 
 Something like:
 
+```
 server {
 	listen 30000;
 	listen [::]:30000 ipv6only=on;
@@ -50,3 +53,4 @@ server {
 		alias /home/streamrecord/app/static/;
 	}
 }
+```
