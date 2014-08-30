@@ -4,9 +4,8 @@ import os.path
 
 class database:
 	def __init__(self):
-		self.db = self.openDB()
-		# TODO: If db.sqlite doesn't exist, create one with the following demo data
 		self.createDatabase()
+		self.db = self.openDB()
 	
 	def createDatabase(self):
 		queries = [
