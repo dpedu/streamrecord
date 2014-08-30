@@ -18,7 +18,7 @@ A python3 web app to record internet radio streams and present them in a podcast
 - Use the sqlite3 command line client to called "db.sqlite", and execute the two create table queries in lib/database.py. Syntax is: `sqlite3 db.sqlite 'query here'`. 
 - Write the config for uwsgi, start that daemon
 - Write the config for nginx, and view the page.
-- Create a symbolic link in static/ pointing to files/output/. Command: `mkdir files/ ; mkdir files/output/ ; ln -s ../files/output static/test `
+- Create a symbolic link in static/ pointing to files/output/. Command: `mkdir files/ ; mkdir files/output/ ; mkdir files/temp/ ; ln -s ../files/output static/test `
 
 Podcast usage: each schedule has a numerical id. To view the podcast, http://my.server/api/getPodcast?id=[number]
 
