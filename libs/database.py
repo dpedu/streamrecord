@@ -6,7 +6,7 @@ class database:
 	def __init__(self):
 		self.db = self.openDB()
 		# TODO: If db.sqlite doesn't exist, create one with the following demo data
-		#self.createDatabase()
+		self.createDatabase()
 	
 	def createDatabase(self):
 		queries = [
