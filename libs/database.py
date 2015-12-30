@@ -14,7 +14,7 @@ class database:
 			"""INSERT INTO "streams" ("id","user","name","url","directory","status","message") VALUES (NULL,NULL,'WCMF Breakroom','http://1681.live.streamtheworld.com/WCMFFMAAC','wcmf-breakroom','0','')""",
 			"""INSERT INTO "times" ("id","streamid","su","m","t","w","r","f","sa","starthour","startmin","endhour","endmin") VALUES (NULL,'1','0','1','1','1','1','1','0','2','0','7','15')"""
 		]
-		if not os.path.exists("db.sqlite"):
+		if not os.path.exists("db.sqlite") or os.path.getsize("db.sqlite")==0:
 			db = sqlite3.connect("db.sqlite", check_same_thread=False, cached_statements=0, isolation_level=None)
 			cursor = db.cursor()
 			for query in queries:
